@@ -2,8 +2,8 @@ package clients
 
 import com.paulgoldbaum.influxdbclient.{Database, InfluxDB, Point}
 import common.InitConfs
-
 import scala.util.Success
+import scala.concurrent.ExecutionContext.Implicits.global
 
 
 class InfluxClient extends InitConfs {

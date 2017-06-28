@@ -2,7 +2,6 @@ package common.serialization
 
 import java.util
 
-import common.serialization.MarshallableImplicits._
 import org.apache.kafka.common.serialization.Deserializer
 
 
@@ -12,5 +11,6 @@ class MarketDataDeserializer extends Deserializer[String]{
 
   override def close(): Unit = {}
 
-  override def deserialize(topic: String, data: Array[Byte]): String = data.toString.fromJson()
+  override def deserialize(topic: String, data: Array[Byte]): String = new String(data, "UTF8")
+
 }
